@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plot Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Plots</h1>
+        {% for plot in plots %}
+        <div class="plot-container">
+            <h2>Plot of {{ plot.selected_type_main }} - {{ plot.selected_sectors | join(', ') }}</h2>
+            {% if plot.message %}
+            <p class="error">{{ plot.message }}</p>
+            {% else %}
+            <img src="data:image/png;base64,{{ plot.plot_base64 }}" alt="Plot Image">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
