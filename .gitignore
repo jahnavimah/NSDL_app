@@ -6,3 +6,5 @@ __pycache__/
 
 # Logs
 logs/
+# Ignore Firebase Admin SDK credential file
+firebase_credentials.json
